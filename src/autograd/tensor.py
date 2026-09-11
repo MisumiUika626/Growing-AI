@@ -107,6 +107,8 @@ class Tensor:
         out = Tensor(self.data**exponent, (self,), f"**{exponent}")
 
         def _backward():
+            if exponent == 0:
+                return  # x**0 is constant, including at x=0.
             self.grad += exponent * self.data ** (exponent - 1) * out.grad
 
         out._backward = _backward
@@ -132,6 +134,21 @@ class Tensor:
                 grad = np.expand_dims(grad, axis=axis)
 
             self.grad += grad * np.ones_like(self.data)
+
+        out._backward = _backward
+        return out
+
+    def sigmoid(self):
+        # Both branches exponentiate non-positive values to avoid overflow.
+        positive = self.data >= 0
+        values = np.empty_like(self.data)
+        values[positive] = 1.0 / (1.0 + np.exp(-self.data[positive]))
+        exp_x = np.exp(self.data[~positive])
+        values[~positive] = exp_x / (1.0 + exp_x)
+        out = Tensor(values, (self,), "sigmoid")
+
+        def _backward():
+            self.grad += out.grad * out.data * (1.0 - out.data)
 
         out._backward = _backward
         return out

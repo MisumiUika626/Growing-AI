@@ -20,7 +20,7 @@ The runner does not create a held-out split or report validation/test metrics. F
 
 | Dataset | Shape and target | Default configuration | Main question |
 | --- | --- | --- | --- |
-| `linear` | 3 samples, `x: (3,)`, scalar target | 100 epochs, lr `0.033`, seed `42` | Does the complete Tensor → Linear → MSE → backward → SGD path train? |
+| `linear` | 3 samples, `x: (3,)`, scalar target | 100 epochs, lr `0.001`, seed `42` | Does the complete Tensor → Linear → MSE → backward → SGD path train? |
 | `nonlinear` | 9 samples, `x: (1,)`, `y = x^2` | 500 epochs, lr `0.01`, seed `42` | Can a hidden layer represent a relation that one affine layer cannot? |
 | `xor` | 4 samples, `x: (2,)`, label `0/1` | 500 epochs, lr `0.01`, seed `42` | Can the MLP fit a non-linearly separable label pattern? |
 | `twomoon` | 200 samples, `x: (2,)`, label `0/1`, noise `0.15` | 500 epochs, lr `0.01`, seed `38` | How do Linear and MLP behave on a curved noisy boundary? |

@@ -1,4 +1,4 @@
-# Growing-AI Architecture
+# BloomingTensor Architecture
 
 ## Principles
 

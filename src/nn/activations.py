@@ -23,8 +23,7 @@ class Sigmoid:
     def forward(self, x):
         if not isinstance(x, Tensor):
             raise TypeError("x must be a Tensor")
-        out = 1 / ((-x).exp() + 1)
-        return out
+        return x.sigmoid()
 
 
 class Softmax:

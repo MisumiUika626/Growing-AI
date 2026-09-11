@@ -33,6 +33,8 @@ class Value:
         out = Value(self.data**exponent, (self,), f"**{exponent}")
 
         def _backward():
+            if exponent == 0:
+                return  # x**0 is constant, including at x=0.
             self.grad += exponent * self.data ** (exponent - 1) * out.grad
 
         out._backward = _backward
@@ -86,6 +88,8 @@ class Value:
                 topo.append(v)
 
         build_topo(self)
+        for node in topo:
+            node.grad = 0.0
         self.grad = 1.0
         for node in reversed(topo):
             node._backward()

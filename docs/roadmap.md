@@ -1,4 +1,4 @@
-# Growing-AI Roadmap
+# BloomingTensor Roadmap
 
 ## Project Direction
 
@@ -11,7 +11,7 @@ Transformers → agents → reinforcement learning.
 - Scalar automatic differentiation for basic arithmetic, shared-node gradient accumulation, and reverse topological propagation.
 - NumPy-backed Tensor automatic differentiation for arithmetic, broadcasting, two-dimensional matrix multiplication, reductions, `exp`, `log`, ReLU, and Leaky ReLU.
 - Linear, Sequential, and MLP components with discoverable parameters.
-- Composition-based Sigmoid, MSE training, per-sample SGD, and fixed-parameter epoch evaluation.
+- Numerically stable Sigmoid, MSE training, per-sample SGD, and fixed-parameter epoch evaluation.
 - Reproducible linear, `y = x^2`, XOR, and Two Moons datasets with independently selected Linear/MLP models.
 - A command-line experiment runner that saves timestamped loss curves and two-dimensional prediction surfaces for XOR and Two Moons.
 - Axis-aware Tensor reduction, stable row-wise Softmax, stable CrossEntropy, integer-label accuracy, and batch loading.

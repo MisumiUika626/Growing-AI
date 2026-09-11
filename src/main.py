@@ -9,7 +9,7 @@ from .trainers.trainer import ToyTrainer
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run a toy Growing-AI experiment")
+    parser = argparse.ArgumentParser(description="Run a toy BloomingTensor experiment")
     parser.add_argument(
         "--dataset",
         choices=("linear", "nonlinear", "xor", "twomoon"),
